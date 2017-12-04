@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style>
@@ -13,18 +13,19 @@
   <div id="root"></div>
 </body>
 
-<script>window.exports = module.exports</script>
-<script type="text/tsx">
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+<script type="text/jsx">
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './components/App/App.tsx';
+import App from './components/App/App';
 
 const render = () => {
   ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('root'));
 }
 
 render();
-if (module.hot) { module.hot.accept(render); }
+if (module.hot) {
+  module.hot.accept(render);
+}
 </script>
 </html>

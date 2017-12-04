@@ -3,13 +3,13 @@
   "productName": "audiobook-electron",
   "version": "1.0.0",
   "description": "Audiobook player developed as electron app",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "tslint --project tsconfig.json --force"
+    "lint": "eslint --cache --color --ext .jsx,.js src"
   },
   "keywords": [],
   "author": "Deseteral <github.com/deseteral>",
@@ -47,26 +47,24 @@
     }
   },
   "dependencies": {
-    "@types/electron-devtools-installer": "2.0.2",
-    "@types/react": "16.0.25",
-    "@types/react-dom": "16.0.3",
     "electron-compile": "6.4.2",
     "electron-devtools-installer": "2.2.1",
     "electron-squirrel-startup": "1.0.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
-    "react-hot-loader": "3.1.3",
-    "tslib": "1.8.0"
+    "react-hot-loader": "3.1.3"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.24.1",
+    "babel-plugin-transform-es2015-classes": "6.24.1",
     "babel-preset-env": "1.6.1",
     "babel-preset-react": "6.24.1",
     "electron-forge": "4.1.5",
     "electron-prebuilt-compile": "1.7.9",
-    "tslint": "5.8.0",
-    "tslint-config-airbnb": "5.4.2",
-    "tslint-react": "3.2.0",
-    "typescript": "2.6.2"
+    "eslint": "4.12.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.5.1"
   }
 }

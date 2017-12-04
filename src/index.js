@@ -1,12 +1,12 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies, import/extensions
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile';
 
-let mainWindow: BrowserWindow | null = null;
+let mainWindow;
 
 const isDevMode = process.execPath.match(/[\\/]electron/);
 
-if (isDevMode === null) {
+if (isDevMode) {
   enableLiveReload({ strategy: 'react-hmr' });
 }
 
@@ -23,7 +23,9 @@ const createWindow = async () => {
     mainWindow.webContents.openDevTools();
   }
 
-  mainWindow.on('closed', () => mainWindow = null);
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 };
 
 app.on('ready', createWindow);
