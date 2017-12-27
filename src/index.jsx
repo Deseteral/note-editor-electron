@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { AppContainer } from 'react-hot-loader';
+import saga from './saga';
 import reducer from './reducer';
 import App from './components/App/App';
 
@@ -12,6 +13,8 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // eslint-disable-line
   applyMiddleware(sagaMiddleware),
 );
+
+sagaMiddleware.run(saga);
 
 function render() {
   ReactDOM.render(

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
+import { libraryPathChangeRequest } from '../../actions/library-path';
 
-function App(props) {
-  return (
-    <Provider store={props.store}>
-      <h2>Welcome to React!</h2>
-    </Provider>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.store.dispatch(libraryPathChangeRequest());
+  }
+
+  render() {
+    const { store } = this.props;
+
+    return (
+      <Provider store={store}>
+        <h2>Welcome to React!</h2>
+      </Provider>
+    );
+  }
 }
 
 App.propTypes = {
