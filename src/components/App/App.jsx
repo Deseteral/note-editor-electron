@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
 
-function App() {
+function App(props) {
   return (
-    <div>
+    <Provider store={props.store}>
       <h2>Welcome to React!</h2>
-    </div>
+    </Provider>
   );
 }
+
+App.propTypes = {
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default App;
