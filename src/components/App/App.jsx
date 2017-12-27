@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import { libraryPathChangeRequest } from '../../actions/library-path';
+import { libraryPathLoadRequest } from '../../actions/library-path';
 
 class App extends Component {
   componentDidMount() {
-    this.props.store.dispatch(libraryPathChangeRequest());
+    this.props.store.dispatch(libraryPathLoadRequest());
   }
 
   render() {
     const { store } = this.props;
-
     return (
       <Provider store={store}>
-        <h2>Welcome to React!</h2>
+        <h2>audiobook-electron</h2>
       </Provider>
     );
   }

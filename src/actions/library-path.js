@@ -1,22 +1,22 @@
-const LIBRARY_PATH_CHANGE_REQUEST = 'LIBRARY_PATH_CHANGE_REQUEST';
-const LIBRARY_PATH_CHANGED = 'LIBRARY_PATH_CHANGED';
+const LIBRARY_PATH_LOAD_REQUEST = 'LIBRARY_PATH_LOAD_REQUEST';
+const LIBRARY_PATH_LOADED = 'LIBRARY_PATH_LOADED';
 
-function libraryPathChangeRequest() {
+function libraryPathLoadRequest() {
   return {
-    type: LIBRARY_PATH_CHANGE_REQUEST,
+    type: LIBRARY_PATH_LOAD_REQUEST,
   };
 }
 
-function libraryPathChanged(newPath) {
+function libraryPathLoaded(newPath) {
   return {
-    type: LIBRARY_PATH_CHANGED,
+    type: LIBRARY_PATH_LOADED,
     payload: newPath,
   };
 }
 
 export {
-  libraryPathChangeRequest,
-  libraryPathChanged,
-  LIBRARY_PATH_CHANGE_REQUEST,
-  LIBRARY_PATH_CHANGED,
+  libraryPathLoadRequest,
+  libraryPathLoaded,
+  LIBRARY_PATH_LOAD_REQUEST,
+  LIBRARY_PATH_LOADED,
 };
