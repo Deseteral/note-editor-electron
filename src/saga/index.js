@@ -9,13 +9,12 @@ import {
 } from '../services/electron-service';
 
 function* libraryPathChange() {
-  const filePaths = yield call(openLibraryPathDialog);
-
-  if (!filePaths || !filePaths[0]) {
+  try {
+    const libraryPath = yield call(openLibraryPathDialog);
+    yield put(libraryPathLoaded(libraryPath));
+  } catch (e) {
     openMissingLibraryPathMessageBox();
   }
-
-  yield put(libraryPathLoaded(filePaths[0]));
 }
 
 function* saga() {

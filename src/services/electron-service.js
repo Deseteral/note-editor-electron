@@ -3,14 +3,18 @@ import { remote } from 'electron'; // eslint-disable-line import/no-extraneous-d
 const { dialog, app } = remote;
 
 function openLibraryPathDialog() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const options = {
       title: 'Wybierz folder z biblioteką audiobooków',
       properties: ['openDirectory', 'createDirectory'],
     };
 
     dialog.showOpenDialog(options, (filePaths) => {
-      resolve(filePaths);
+      if (filePaths && filePaths[0]) {
+        resolve(filePaths[0]);
+      } else {
+        reject();
+      }
     });
   });
 }
