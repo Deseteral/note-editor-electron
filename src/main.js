@@ -25,7 +25,7 @@ async function createWindow(name, options) {
   });
 }
 
-(() => {
+(function main() {
   if (isDevMode) {
     enableLiveReload({ strategy: 'react-hmr' });
   }
@@ -43,4 +43,4 @@ async function createWindow(name, options) {
       createWindow('main-window', mainWindowOptions);
     }
   });
-})();
+}());
