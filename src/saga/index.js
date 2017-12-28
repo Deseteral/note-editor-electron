@@ -3,10 +3,18 @@ import {
   libraryPathLoaded,
   LIBRARY_PATH_LOAD_REQUEST,
 } from '../actions/library-path';
-import { openLibraryPathDialog } from '../services/electron-service';
+import {
+  openLibraryPathDialog,
+  openMissingLibraryPathMessageBox,
+} from '../services/electron-service';
 
 function* libraryPathChange() {
   const filePaths = yield call(openLibraryPathDialog);
+
+  if (!filePaths || !filePaths[0]) {
+    openMissingLibraryPathMessageBox();
+  }
+
   yield put(libraryPathLoaded(filePaths[0]));
 }
 
