@@ -1,6 +1,4 @@
-import {
-  LIBRARY_PATH_LOADED,
-} from '../actions/library-path';
+import { LIBRARY_PATH_LOADED } from '../actions/types';
 
 function libraryPath(state = null, action) {
   switch (action.type) {

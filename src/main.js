@@ -1,9 +1,11 @@
-import { app, BrowserWindow } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies, import/extensions
+import { app, BrowserWindow } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile';
 
 const isDevMode = process.execPath.match(/[\\/]electron/);
-const windows = {};
+const windows = {
+  'main-window': null,
+};
 
 const mainWindowOptions = {
   width: 800,
@@ -31,13 +33,7 @@ async function createWindow(name, options) {
   }
 
   app.on('ready', () => createWindow('main-window', mainWindowOptions));
-
-  app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-      app.quit();
-    }
-  });
-
+  app.on('window-all-closed', () => app.quit());
   app.on('activate', () => {
     if (windows['main-window'] === null) {
       createWindow('main-window', mainWindowOptions);

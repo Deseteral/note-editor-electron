@@ -1,21 +1,8 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { takeEvery } from 'redux-saga/effects';
 import {
-  libraryPathLoaded,
   LIBRARY_PATH_LOAD_REQUEST,
-} from '../actions/library-path';
-import {
-  openLibraryPathDialog,
-  openMissingLibraryPathMessageBox,
-} from '../services/electron-service';
-
-function* libraryPathChange() {
-  try {
-    const libraryPath = yield call(openLibraryPathDialog);
-    yield put(libraryPathLoaded(libraryPath));
-  } catch (e) {
-    openMissingLibraryPathMessageBox();
-  }
-}
+} from '../actions/types';
+import { libraryPathChange } from './library-path';
 
 function* saga() {
   yield takeEvery(LIBRARY_PATH_LOAD_REQUEST, libraryPathChange);

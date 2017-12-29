@@ -1,4 +1,4 @@
-import { remote } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies, import/extensions
+import { remote } from 'electron';
 
 const { dialog, app } = remote;
 

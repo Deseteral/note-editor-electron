@@ -5,8 +5,11 @@
     "jest": true,
     "es6": true
   },
-  "extends": "eslint-config-airbnb",
+  "extends": "airbnb",
+  "settings": {
+    "import/core-modules": ["electron"]
+  },
   "rules": {
-    "import/no-unresolved": ["error", { "ignore": ["electron"] }]
+    "import/named": ["error"]
   }
 }

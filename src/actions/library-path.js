@@ -1,5 +1,7 @@
-const LIBRARY_PATH_LOAD_REQUEST = 'LIBRARY_PATH_LOAD_REQUEST';
-const LIBRARY_PATH_LOADED = 'LIBRARY_PATH_LOADED';
+import {
+  LIBRARY_PATH_LOAD_REQUEST,
+  LIBRARY_PATH_LOADED,
+} from './types';
 
 function libraryPathLoadRequest() {
   return {
@@ -17,6 +19,4 @@ function libraryPathLoaded(newPath) {
 export {
   libraryPathLoadRequest,
   libraryPathLoaded,
-  LIBRARY_PATH_LOAD_REQUEST,
-  LIBRARY_PATH_LOADED,
 };
