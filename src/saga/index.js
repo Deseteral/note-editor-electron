@@ -1,7 +1,5 @@
 import { takeEvery } from 'redux-saga/effects';
-import {
-  LIBRARY_PATH_LOAD_REQUEST,
-} from '../actions/types';
+import { LIBRARY_PATH_LOAD_REQUEST } from '../actions/types';
 import { libraryPathChange } from './library-path';
 
 function* saga() {

@@ -5,6 +5,7 @@ import { libraryPathLoadRequest } from '../../actions/library-path';
 
 class App extends Component {
   componentDidMount() {
+    // TODO: This should dispatch before main window even appears
     this.props.store.dispatch(libraryPathLoadRequest());
   }
 
