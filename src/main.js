@@ -28,9 +28,7 @@ async function createWindow(name, options) {
 }
 
 (function main() {
-  if (isDevMode) {
-    enableLiveReload({ strategy: 'react-hmr' });
-  }
+  if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
   app.on('ready', () => createWindow('main-window', mainWindowOptions));
   app.on('window-all-closed', () => app.quit());
