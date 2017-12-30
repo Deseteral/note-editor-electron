@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { libraryPathLoadRequest } from '../../actions/library-path';
+import LibraryFileList from '../../containers/LibraryFileList';
 
 class App extends Component {
   componentDidMount() {
@@ -12,7 +13,10 @@ class App extends Component {
     const { store } = this.props;
     return (
       <Provider store={store}>
-        <h2>audiobook-electron</h2>
+        <div>
+          <h2>audiobook-electron</h2>
+          <LibraryFileList />
+        </div>
       </Provider>
     );
   }
