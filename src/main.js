@@ -9,7 +9,7 @@ const isDevMode = process.execPath.match(/[\\/]electron/);
 const mainWindowOptions = {
   width: 800,
   height: 600,
-  show: false,
+  show: true,
 };
 
 (function main() {

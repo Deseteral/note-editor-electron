@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import FileList from '../components/FileList/FileList';
+import { libraryPathLoadRequest } from '../actions/library-path';
 
 function mapStateToProps(state) {
   return {
@@ -7,8 +8,10 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    selectLibraryPath: () => dispatch(libraryPathLoadRequest()),
+  };
 }
 
 const LibraryFileList = connect(

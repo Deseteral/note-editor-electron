@@ -1,6 +1,6 @@
 import { remote } from 'electron';
 
-const { dialog, app } = remote;
+const { dialog } = remote;
 
 function openLibraryPathDialog() {
   return new Promise((resolve, reject) => {
@@ -19,21 +19,6 @@ function openLibraryPathDialog() {
   });
 }
 
-function openMissingLibraryPathMessageBox() {
-  const title = 'Brak folderu biblioteki';
-  const message = 'Aby korzystać z aplikacji musisz wybrać folder z notatkami';
-  const options = {
-    type: 'error',
-    title,
-    message: title,
-    detail: message,
-    buttons: ['OK'],
-  };
-
-  dialog.showMessageBox(options, () => app.quit());
-}
-
 export {
   openLibraryPathDialog,
-  openMissingLibraryPathMessageBox,
 };
