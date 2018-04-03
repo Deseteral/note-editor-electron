@@ -5,7 +5,7 @@ const { dialog, app } = remote;
 function openLibraryPathDialog() {
   return new Promise((resolve, reject) => {
     const options = {
-      title: 'Wybierz folder z biblioteką audiobooków',
+      title: 'Wybierz folder z notatkami',
       properties: ['openDirectory', 'createDirectory'],
     };
 
@@ -21,7 +21,7 @@ function openLibraryPathDialog() {
 
 function openMissingLibraryPathMessageBox() {
   const title = 'Brak folderu biblioteki';
-  const message = 'Aby korzystać z aplikacji musisz wybrać folder z biblioteką audiobooków';
+  const message = 'Aby korzystać z aplikacji musisz wybrać folder z notatkami';
   const options = {
     type: 'error',
     title,

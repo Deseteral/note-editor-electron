@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div>
-          <h2>audiobook-electron</h2>
+          <h2>note-editor-electron</h2>
           <LibraryFileList />
         </div>
       </Provider>

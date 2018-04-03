@@ -1,8 +1,8 @@
 {
-  "name": "audiobook-electron",
-  "productName": "audiobook-electron",
+  "name": "note-editor-electron",
+  "productName": "note-editor-electron",
   "version": "1.0.0",
-  "description": "Audiobook player developed as electron app",
+  "description": "Markdown note editor as electron app",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -58,7 +58,7 @@
         "packageManager": "npm"
       },
       "electronWinstallerConfig": {
-        "name": "audiobook_electron"
+        "name": "note_editor_electron"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -68,7 +68,7 @@
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "audiobookelectron"
+        "name": "noteeditorelectron"
       }
     }
   }
