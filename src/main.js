@@ -1,6 +1,5 @@
 import { app } from 'electron';
 import { enableLiveReload } from 'electron-compile';
-import setupMainIpc from './setup-main-ipc';
 import windows from './windows/store';
 import createWindow from './windows/create-window';
 
@@ -22,6 +21,4 @@ const mainWindowOptions = {
       createWindow('main-window', mainWindowOptions, isDevMode);
     }
   });
-
-  setupMainIpc();
 }());

@@ -20,5 +20,5 @@ function openLibraryPathDialog() {
 }
 
 export {
-  openLibraryPathDialog,
+  openLibraryPathDialog, // eslint-disable-line import/prefer-default-export
 };
