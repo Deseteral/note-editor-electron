@@ -5,6 +5,7 @@ import { libraryPathLoadRequest } from '../actions/library-path';
 function mapStateToProps(state) {
   return {
     fileList: state.library || [],
+    showSelectButton: !state.libraryPath,
   };
 }
 

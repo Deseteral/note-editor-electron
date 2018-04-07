@@ -23,7 +23,8 @@
     "react-redux": "5.0.6",
     "recursive-readdir": "2.2.1",
     "redux": "3.7.2",
-    "redux-saga": "0.16.0"
+    "redux-saga": "0.16.0",
+    "styled-components": "3.2.5"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "6.24.1",
