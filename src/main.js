@@ -3,6 +3,8 @@ import { enableLiveReload } from 'electron-compile';
 import windows from './windows/store';
 import createWindow from './windows/create-window';
 
+// TODO: Write a logger to avoid console.log
+
 const isDevMode = process.execPath.match(/[\\/]electron/);
 
 const mainWindowOptions = {
