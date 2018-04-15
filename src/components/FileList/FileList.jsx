@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NoDirectoryPlaceholder from '../NoDirectoryPlaceholder/NoDirectoryPlaceholder';
 
-function FileList({ fileList, showSelectButton, selectLibraryPath }) {
-  if (showSelectButton) {
+function FileList({ fileList, selectLibraryPath }) {
+  if (fileList.length === 0) {
     return (
       <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
     );
@@ -17,14 +17,8 @@ function FileList({ fileList, showSelectButton, selectLibraryPath }) {
 }
 
 FileList.propTypes = {
-  fileList: PropTypes.arrayOf(PropTypes.string),
-  showSelectButton: PropTypes.bool,
+  fileList: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectLibraryPath: PropTypes.func.isRequired,
-};
-
-FileList.defaultProps = {
-  fileList: [],
-  showSelectButton: false,
 };
 
 export default FileList;
