@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const PlaceholderIcon = () => (
-  <Icon style={({ fontSize: '150px', color: 'var(--divider-color)' })}>
+  <Icon style={({ fontSize: '150px', color: 'var(--color-divider)' })}>
     create_new_folder
   </Icon>
 );
@@ -21,12 +21,12 @@ function NoDirectoryPlaceholder({ onButtonClick }) {
   return (
     <Container>
       <PlaceholderIcon />
-      <Typography color="textSecondary" paragraph>
+      <Typography color="subheading" paragraph>
         Wygląda na to, że nie wybrano żadnego katalogu
       </Typography>
       <Button
-        color="primary"
-        variant="raised"
+        color="secondary"
+        variant="flat"
         onClick={onButtonClick}
       >
         Wybierz katalog

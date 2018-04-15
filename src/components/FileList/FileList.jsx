@@ -5,9 +5,7 @@ import NoDirectoryPlaceholder from '../NoDirectoryPlaceholder/NoDirectoryPlaceho
 function FileList({ fileList, showSelectButton, selectLibraryPath }) {
   if (showSelectButton) {
     return (
-      <NoDirectoryPlaceholder
-        onButtonClick={() => selectLibraryPath()}
-      />
+      <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
     );
   }
 
