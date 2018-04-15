@@ -22,7 +22,7 @@ function NoDirectoryPlaceholder({ onButtonClick }) {
     <Container>
       <PlaceholderIcon />
       <Typography paragraph>
-        Wygląda na to, że nie wybrano żadnego katalogu
+        Wygląda na to, że żaden katalog nie został wybrany
       </Typography>
       <Button
         color="secondary"

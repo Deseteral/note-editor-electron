@@ -12,6 +12,7 @@
     "lint": "eslint --cache --color --ext .jsx,.js src"
   },
   "dependencies": {
+    "@material-ui/icons": "1.0.0-beta.42",
     "electron-compile": "6.4.2",
     "electron-devtools-installer": "2.2.1",
     "electron-squirrel-startup": "1.0.0",

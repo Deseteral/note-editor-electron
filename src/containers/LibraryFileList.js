@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import FileList from '../components/FileList/FileList';
 import { libraryPathLoadRequest } from '../actions/library-path';
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return {
+    title: ownProps.title,
     fileList: state.library,
   };
 }

@@ -6,11 +6,6 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import Header from '../Header/Header';
 import LibraryFileList from '../../containers/LibraryFileList';
 
-const Container = styled.div`
-  height: 100%;
-  padding-top: 64px;
-`;
-
 const theme = createMuiTheme({
   palette: {
     secondary: {
@@ -28,13 +23,27 @@ const theme = createMuiTheme({
   },
 });
 
+const Container = styled.div`
+  height: 100%;
+  padding-top: 64px;
+`;
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding: 16px;
+`;
+
 function App({ store }) {
   return (
     <Provider store={store}>
       <MuiThemeProvider theme={theme}>
         <Container>
           <Header />
-          <LibraryFileList />
+          <AppContainer>
+            <LibraryFileList title="Twoje notatki" />
+          </AppContainer>
         </Container>
       </MuiThemeProvider>
     </Provider>
