@@ -27,7 +27,7 @@ function NoDirectoryPlaceholder({ onButtonClick }) {
       <Button
         color="primary"
         variant="raised"
-        onClick={() => onButtonClick()}
+        onClick={onButtonClick}
       >
         Wybierz katalog
       </Button>

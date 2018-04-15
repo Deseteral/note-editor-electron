@@ -3,14 +3,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Edytor notatek</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
-    html,
-    body,
-    div#root {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-    }
     :root {
       --dark-primary-color:    #0097A7;
       --default-primary-color: #00BCD4;
@@ -20,10 +15,18 @@
       --primary-text-color:    #212121;
       --secondary-text-color:  #757575;
       --divider-color:         #BDBDBD;
+      --background-color:      #FAFAFA;
+    }
+    html,
+    body,
+    div#root {
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      user-select: none;
+      cursor: default;
     }
   </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
