@@ -40,9 +40,9 @@ function FileList({ title, fileList, selectLibraryPath }) {
           <Paper>
             <List>
               {fileList.map(file => (
-                <ListItem>
+                <ListItem key={file.id}>
                   <ListItemIcon><DescriptionIcon /></ListItemIcon>
-                  <ListItemText primary={file} />
+                  <ListItemText primary={file.filename} secondary={file.path} />
                 </ListItem>
               ))}
             </List>
@@ -55,7 +55,7 @@ function FileList({ title, fileList, selectLibraryPath }) {
 
 FileList.propTypes = {
   title: PropTypes.string,
-  fileList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  fileList: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectLibraryPath: PropTypes.func.isRequired,
 };
 
