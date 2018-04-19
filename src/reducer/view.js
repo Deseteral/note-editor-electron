@@ -1,6 +1,6 @@
 import { VIEW_CHANGE } from '../actions/types';
 
-function view(state = null, action) {
+function view(state = 'FILE_LIST', action) {
   switch (action.type) {
     case VIEW_CHANGE:
       return action.payload;

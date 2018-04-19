@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import styled from 'styled-components';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import Header from '../Header/Header';
-import LibraryFileList from '../../containers/LibraryFileList';
+import ViewRouter from '../../containers/ViewRouter';
 
 const theme = createMuiTheme({
   palette: {
@@ -42,7 +42,7 @@ function App({ store }) {
         <Container>
           <Header />
           <AppContainer>
-            <LibraryFileList title="Twoje notatki" />
+            <ViewRouter />
           </AppContainer>
         </Container>
       </MuiThemeProvider>
