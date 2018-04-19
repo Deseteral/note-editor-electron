@@ -40,7 +40,11 @@ function FileList({ title, fileList, selectLibraryPath }) {
           <Paper>
             <List>
               {fileList.map(file => (
-                <ListItem key={file.id}>
+                <ListItem
+                  key={file.id}
+                  onClick={() => console.log(file)}
+                  button
+                >
                   <ListItemIcon><DescriptionIcon /></ListItemIcon>
                   <ListItemText primary={file.filename} secondary={file.path} />
                 </ListItem>
