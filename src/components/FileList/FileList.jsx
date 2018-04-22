@@ -10,6 +10,7 @@ import List, {
 import Typography from 'material-ui/Typography';
 import DescriptionIcon from '@material-ui/icons/Description';
 import NoDirectoryPlaceholder from '../NoDirectoryPlaceholder/NoDirectoryPlaceholder';
+import AppContainer from '../AppContainer/AppContainer';
 
 const Container = styled.div`
   display: flex;
@@ -29,12 +30,14 @@ function FileList({
 }) {
   if (fileList.length === 0) {
     return (
-      <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
+      <AppContainer>
+        <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
+      </AppContainer>
     );
   }
 
   return (
-    <Fragment>
+    <AppContainer>
       {title && (
         <Typography variant="display1" gutterBottom>
           {title}
@@ -58,7 +61,7 @@ function FileList({
           </Paper>
         </PaperContainer>
       </Container>
-    </Fragment>
+    </AppContainer>
   );
 }
 

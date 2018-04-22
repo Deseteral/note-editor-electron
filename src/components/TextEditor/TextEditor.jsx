@@ -1,10 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RichTextEditor from 'react-rte';
 import Button from 'material-ui/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import Paper from 'material-ui/Paper';
 import FileService from '../../services/file-service';
+import AppContainer from '../AppContainer/AppContainer';
 
 class TextEditor extends Component {
   constructor(props) {
@@ -59,25 +60,27 @@ class TextEditor extends Component {
     };
 
     return (
-      <Paper>
-        {!editMode && (
-          <Button
-            variant="fab"
-            color="secondary"
-            style={fabStyle}
-            onClick={() => this.setState({ editMode: true })}
-          >
-            <EditIcon />
-          </Button>
-        )}
-        <RichTextEditor
-          rootStyle={rteStyle}
-          editorClassName="editor-root"
-          value={value}
-          readOnly={!editMode}
-          onChange={v => this.onChange(v)}
-        />
-      </Paper>
+      <AppContainer>
+        <Paper>
+          {!editMode && (
+            <Button
+              variant="fab"
+              color="secondary"
+              style={fabStyle}
+              onClick={() => this.setState({ editMode: true })}
+            >
+              <EditIcon />
+            </Button>
+          )}
+          <RichTextEditor
+            rootStyle={rteStyle}
+            editorClassName="editor-root"
+            value={value}
+            readOnly={!editMode}
+            onChange={v => this.onChange(v)}
+          />
+        </Paper>
+      </AppContainer>
     );
   }
 }

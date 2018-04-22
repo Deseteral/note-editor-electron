@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import styled from 'styled-components';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import Header from '../Header/Header';
 import ViewRouter from '../../containers/ViewRouter';
 
 const theme = createMuiTheme({
@@ -23,28 +21,11 @@ const theme = createMuiTheme({
   },
 });
 
-const Container = styled.div`
-  height: 100%;
-  padding-top: 64px;
-`;
-
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  padding: 16px;
-`;
-
 function App({ store }) {
   return (
     <Provider store={store}>
       <MuiThemeProvider theme={theme}>
-        <Container>
-          <Header />
-          <AppContainer>
-            <ViewRouter />
-          </AppContainer>
-        </Container>
+        <ViewRouter />
       </MuiThemeProvider>
     </Provider>
   );
