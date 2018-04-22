@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import RichTextEditor from 'react-rte';
+import Button from 'material-ui/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import Paper from 'material-ui/Paper';
 import FileService from '../../services/file-service';
 
 class TextEditor extends Component {
@@ -9,6 +12,7 @@ class TextEditor extends Component {
     this.state = {
       fileContent: null,
       value: null,
+      editMode: false,
     };
   }
 
@@ -35,19 +39,45 @@ class TextEditor extends Component {
   }
 
   render() {
-    const { fileContent, value } = this.state;
+    const { fileContent, value, editMode } = this.state;
 
     if (!fileContent) {
       return (<div>spinner</div>);
     }
 
+    const fabStyle = {
+      position: 'fixed',
+      zIndex: 10,
+      right: '16px',
+      bottom: '16px',
+    };
+
+    const rteStyle = {
+      minHeight: editMode ? 'calc(100vh - 64px - 36px)' : 'auto',
+      background: 'none',
+      border: 'none',
+    };
+
     return (
-      <RichTextEditor
-        rootStyle={({ height: 'calc(100vh - 64px - 36px)' })}
-        editorClassName="editor-root"
-        value={value}
-        onChange={v => this.onChange(v)}
-      />
+      <Paper>
+        {!editMode && (
+          <Button
+            variant="fab"
+            color="secondary"
+            style={fabStyle}
+            onClick={() => this.setState({ editMode: true })}
+          >
+            <EditIcon />
+          </Button>
+        )}
+        <RichTextEditor
+          rootStyle={rteStyle}
+          editorClassName="editor-root"
+          value={value}
+          readOnly={!editMode}
+          onChange={v => this.onChange(v)}
+        />
+      </Paper>
     );
   }
 }
