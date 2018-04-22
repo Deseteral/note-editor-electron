@@ -21,6 +21,10 @@ class TextEditor extends Component {
 
   onChange(value) {
     this.setState({ value });
+    FileService.saveFile(
+      this.props.file.path,
+      this.state.value.toString('markdown'),
+    );
   }
 
   loadFileFromContent(content) {

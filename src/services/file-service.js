@@ -13,8 +13,17 @@ function loadFile(filePath) {
   });
 }
 
-function saveFile() {
+function saveFile(filePath, content) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(filePath, content, 'utf8', (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
+      resolve();
+    });
+  });
 }
 
 export default {
