@@ -16,15 +16,15 @@ class TextEditor extends Component {
     FileService
       .loadFile(this.props.file.path)
       .then(fileContent => this.loadFileFromContent(fileContent))
-      .catch(err => console.error(err)); // TODO: Display helpfull message
+      .catch(err => console.error(err)); // TODO: Display helpful message
   }
 
   onChange(value) {
     this.setState({ value });
-    FileService.saveFile(
-      this.props.file.path,
-      this.state.value.toString('markdown'),
-    );
+    const { file } = this.props;
+    const markdownContent = this.state.value.toString('markdown');
+
+    FileService.saveFile(file.path, markdownContent);
   }
 
   loadFileFromContent(content) {
