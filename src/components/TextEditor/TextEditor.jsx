@@ -40,6 +40,7 @@ class TextEditor extends Component {
   }
 
   render() {
+    const { file, changeView } = this.props;
     const { fileContent, value, editMode } = this.state;
 
     if (!fileContent) {
@@ -59,8 +60,15 @@ class TextEditor extends Component {
       border: 'none',
     };
 
+    const onBackClick = editMode
+      ? () => this.setState({ editMode: false })
+      : () => changeView('FILE_LIST');
+
     return (
-      <AppContainer>
+      <AppContainer
+        title={file.filename}
+        onBackClick={onBackClick}
+      >
         <Paper>
           {!editMode && (
             <Button
@@ -87,6 +95,7 @@ class TextEditor extends Component {
 
 TextEditor.propTypes = {
   file: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  changeView: PropTypes.func.isRequired,
 };
 
 TextEditor.defaultProps = {
