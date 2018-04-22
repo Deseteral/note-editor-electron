@@ -7,8 +7,8 @@ import List, {
   ListItemIcon,
   ListItemText,
 } from 'material-ui/List';
-import Typography from 'material-ui/Typography';
 import DescriptionIcon from '@material-ui/icons/Description';
+import AddIcon from '@material-ui/icons/Add';
 import NoDirectoryPlaceholder from '../NoDirectoryPlaceholder/NoDirectoryPlaceholder';
 import AppContainer from '../AppContainer/AppContainer';
 
@@ -21,6 +21,10 @@ const Container = styled.div`
 const PaperContainer = styled.div`
   width: 75%;
 `;
+
+function addNewFile() {
+
+}
 
 function FileList({
   title,
@@ -37,16 +41,18 @@ function FileList({
   }
 
   return (
-    <AppContainer>
-      {title && (
-        <Typography variant="display1" gutterBottom>
-          {title}
-        </Typography>
-      )}
+    <AppContainer title={title}>
       <Container>
         <PaperContainer>
           <Paper>
             <List>
+              <ListItem
+                onClick={() => addNewFile()}
+                button
+              >
+                <ListItemIcon><AddIcon /></ListItemIcon>
+                <ListItemText primary="Dodaj nową notatkę" />
+              </ListItem>
               {fileList.map(file => (
                 <ListItem
                   key={file.id}
@@ -66,14 +72,10 @@ function FileList({
 }
 
 FileList.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   fileList: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectLibraryPath: PropTypes.func.isRequired,
   selectCurrentFile: PropTypes.func.isRequired,
-};
-
-FileList.defaultProps = {
-  title: null,
 };
 
 export default FileList;
