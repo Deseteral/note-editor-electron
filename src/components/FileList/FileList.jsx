@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Paper from 'material-ui/Paper';
@@ -11,6 +11,8 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import AddIcon from '@material-ui/icons/Add';
 import NoDirectoryPlaceholder from '../NoDirectoryPlaceholder/NoDirectoryPlaceholder';
 import AppContainer from '../AppContainer/AppContainer';
+import NewNoteDialog from '../NewNoteDialog/NewNoteDialog';
+import FileService from '../../services/file-service';
 
 const Container = styled.div`
   display: flex;
@@ -22,53 +24,80 @@ const PaperContainer = styled.div`
   width: 75%;
 `;
 
-function addNewFile() {
+class FileList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      newNoteModalOpen: false,
+    };
+  }
 
-}
+  componentDidMount() {
+    if (this.props.libraryPath) {
+      this.props.scanLibrary();
+    }
+  }
 
-function FileList({
-  title,
-  fileList,
-  selectLibraryPath,
-  selectCurrentFile,
-}) {
-  if (fileList.length === 0) {
+  createNewNote(noteName) {
+    const { libraryPath, selectCurrentFile } = this.props;
+
+    FileService
+      .createFile(libraryPath, noteName)
+      .then(file => selectCurrentFile(file))
+      .catch(err => console.error(err));
+  }
+
+  render() {
+    const {
+      title,
+      fileList,
+      selectLibraryPath,
+      selectCurrentFile,
+    } = this.props;
+
+    if (fileList.length === 0) {
+      return (
+        <AppContainer>
+          <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
+        </AppContainer>
+      );
+    }
+
     return (
-      <AppContainer>
-        <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
+      <AppContainer title={title}>
+        <Container>
+          <PaperContainer>
+            <Paper>
+              <List>
+                <ListItem
+                  onClick={() => this.setState({ newNoteModalOpen: true })}
+                  button
+                >
+                  <ListItemIcon><AddIcon /></ListItemIcon>
+                  <ListItemText primary="Dodaj nową notatkę" />
+                </ListItem>
+                {fileList.map(file => (
+                  <ListItem
+                    key={file.id}
+                    onClick={() => selectCurrentFile(file)}
+                    button
+                  >
+                    <ListItemIcon><DescriptionIcon /></ListItemIcon>
+                    <ListItemText primary={file.filename} secondary={file.path} />
+                  </ListItem>
+                ))}
+              </List>
+            </Paper>
+          </PaperContainer>
+        </Container>
+        <NewNoteDialog
+          open={this.state.newNoteModalOpen}
+          handleClose={() => this.setState({ newNoteModalOpen: false })}
+          handleSubmit={name => this.createNewNote(name)}
+        />
       </AppContainer>
     );
   }
-
-  return (
-    <AppContainer title={title}>
-      <Container>
-        <PaperContainer>
-          <Paper>
-            <List>
-              <ListItem
-                onClick={() => addNewFile()}
-                button
-              >
-                <ListItemIcon><AddIcon /></ListItemIcon>
-                <ListItemText primary="Dodaj nową notatkę" />
-              </ListItem>
-              {fileList.map(file => (
-                <ListItem
-                  key={file.id}
-                  onClick={() => selectCurrentFile(file)}
-                  button
-                >
-                  <ListItemIcon><DescriptionIcon /></ListItemIcon>
-                  <ListItemText primary={file.filename} secondary={file.path} />
-                </ListItem>
-              ))}
-            </List>
-          </Paper>
-        </PaperContainer>
-      </Container>
-    </AppContainer>
-  );
 }
 
 FileList.propTypes = {
@@ -76,6 +105,12 @@ FileList.propTypes = {
   fileList: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectLibraryPath: PropTypes.func.isRequired,
   selectCurrentFile: PropTypes.func.isRequired,
+  libraryPath: PropTypes.string,
+  scanLibrary: PropTypes.func.isRequired,
+};
+
+FileList.defaultProps = {
+  libraryPath: null,
 };
 
 export default FileList;

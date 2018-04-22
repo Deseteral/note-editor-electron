@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 function loadFile(filePath) {
   return new Promise((resolve, reject) => {
@@ -26,7 +27,27 @@ function saveFile(filePath, content) {
   });
 }
 
+function createFile(directory, name) {
+  return new Promise((resolve, reject) => {
+    const filePath = `${path.join(directory, name)}.md`;
+    const fileContent = `# ${name}`;
+
+    fs.writeFile(filePath, fileContent, (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        path: filePath,
+        filename: name,
+      });
+    });
+  });
+}
+
 export default {
   loadFile,
   saveFile,
+  createFile,
 };
