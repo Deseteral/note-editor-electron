@@ -43,6 +43,8 @@ class TextEditor extends Component {
 
     return (
       <RichTextEditor
+        rootStyle={({ height: 'calc(100vh - 64px - 36px)' })}
+        editorClassName="editor-root"
         value={value}
         onChange={v => this.onChange(v)}
       />
