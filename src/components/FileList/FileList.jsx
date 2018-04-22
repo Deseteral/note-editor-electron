@@ -21,7 +21,12 @@ const PaperContainer = styled.div`
   width: 75%;
 `;
 
-function FileList({ title, fileList, selectLibraryPath }) {
+function FileList({
+  title,
+  fileList,
+  selectLibraryPath,
+  selectCurrentFile,
+}) {
   if (fileList.length === 0) {
     return (
       <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
@@ -42,7 +47,7 @@ function FileList({ title, fileList, selectLibraryPath }) {
               {fileList.map(file => (
                 <ListItem
                   key={file.id}
-                  onClick={() => console.log(file)}
+                  onClick={() => selectCurrentFile(file)}
                   button
                 >
                   <ListItemIcon><DescriptionIcon /></ListItemIcon>
@@ -61,6 +66,7 @@ FileList.propTypes = {
   title: PropTypes.string,
   fileList: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectLibraryPath: PropTypes.func.isRequired,
+  selectCurrentFile: PropTypes.func.isRequired,
 };
 
 FileList.defaultProps = {

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import FileList from '../components/FileList/FileList';
 import { libraryPathLoadRequest } from '../actions/library-path';
+import { currentFileSelect } from '../actions/current-file';
+import { viewChange } from '../actions/view';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -12,6 +14,10 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     selectLibraryPath: () => dispatch(libraryPathLoadRequest()),
+    selectCurrentFile: ((file) => {
+      dispatch(currentFileSelect(file));
+      dispatch(viewChange('EDITOR'));
+    }),
   };
 }
 
