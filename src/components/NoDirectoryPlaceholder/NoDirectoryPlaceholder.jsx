@@ -11,11 +11,12 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const PlaceholderIcon = () => (
-  <Icon style={({ fontSize: '150px', color: 'var(--color-divider)' })}>
-    create_new_folder
-  </Icon>
-);
+const PlaceholderIcon = styled(Icon).attrs({
+  children: 'create_new_folder',
+})`&& {
+  font-size: 150px;
+  color: var(--color-divider);
+}`;
 
 function NoDirectoryPlaceholder({ onButtonClick }) {
   return (

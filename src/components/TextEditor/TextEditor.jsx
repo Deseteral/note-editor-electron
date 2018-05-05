@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import RichTextEditor from 'react-rte';
 import Button from 'material-ui/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import Paper from 'material-ui/Paper';
 import FileService from '../../services/file-service';
 import AppContainer from '../AppContainer/AppContainer';
+
+const EditFABButton = styled(Button).attrs({
+  variant: 'fab',
+  color: 'secondary',
+  children: (<EditIcon />),
+})`&& {
+  position: fixed;
+  z-index: 10;
+  right: 16px;
+  bottom: 16px;
+}`;
 
 class TextEditor extends Component {
   constructor(props) {
@@ -47,13 +59,6 @@ class TextEditor extends Component {
       return (<div>spinner</div>);
     }
 
-    const fabStyle = {
-      position: 'fixed',
-      zIndex: 10,
-      right: '16px',
-      bottom: '16px',
-    };
-
     const rteStyle = {
       minHeight: editMode ? 'calc(100vh - 64px - 36px)' : 'auto',
       background: 'none',
@@ -71,14 +76,9 @@ class TextEditor extends Component {
       >
         <Paper>
           {!editMode && (
-            <Button
-              variant="fab"
-              color="secondary"
-              style={fabStyle}
+            <EditFABButton
               onClick={() => this.setState({ editMode: true })}
-            >
-              <EditIcon />
-            </Button>
+            />
           )}
           <RichTextEditor
             rootStyle={rteStyle}
