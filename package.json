@@ -1,6 +1,6 @@
 {
   "name": "note-editor-electron",
-  "productName": "note-editor-electron",
+  "productName": "Edytor notatek",
   "version": "1.0.0",
   "description": "Markdown note editor as electron app",
   "main": "src/main.js",
@@ -49,10 +49,12 @@
     "forge": {
       "make_targets": {
         "win32": [
+          "zip",
           "squirrel"
         ],
         "darwin": [
-          "zip"
+          "zip",
+          "dmg"
         ],
         "linux": [
           "deb",
