@@ -33,7 +33,7 @@ class TextEditor extends Component {
     FileService
       .loadFile(this.props.file.path)
       .then(fileContent => this.loadFileFromContent(fileContent))
-      .catch(err => console.error(err)); // TODO: Display helpful message
+      .catch(err => console.error(err));
   }
 
   onChange(value) {

@@ -1,3 +1,22 @@
+:root {
+  --color-secondary-light: #CFFF95;
+  --color-secondary-main:  #9CCC65;
+  --color-secondary-dark:  #6B9B37;
+  --color-primary-light:   #76D275;
+  --color-primary-main:    #43A047;
+  --color-primary-dark:    #00701A;
+  --color-background:      #FAFAFA;
+  --color-divider:         #BDBDBD;
+}
+
+html, body, div#root {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  user-select: none;
+  cursor: default;
+}
+
 .editor-root {
   font-family: Roboto, sans-serif;
 }

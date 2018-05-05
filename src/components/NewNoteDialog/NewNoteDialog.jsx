@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Dialog, {
@@ -14,6 +15,7 @@ class NewNoteDialog extends Component {
       value: '',
     };
   }
+
   render() {
     const { open, handleClose, handleSubmit } = this.props;
 
@@ -45,5 +47,11 @@ class NewNoteDialog extends Component {
     );
   }
 }
+
+NewNoteDialog.propTypes = {
+  open: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
 
 export default NewNoteDialog;
