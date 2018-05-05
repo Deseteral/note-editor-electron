@@ -7,16 +7,16 @@ import ViewRouter from '../../containers/ViewRouter';
 const theme = createMuiTheme({
   palette: {
     secondary: {
-      light: '#cfff95',
-      main: '#9ccc65',
-      dark: '#6b9b37',
-      contrastText: '#ffffff',
+      light: '#CFFF95',
+      main: '#9CCC65',
+      dark: '#6B9B37',
+      contrastText: '#FFFFFF',
     },
     primary: {
-      light: '#76d275',
-      main: '#43a047',
-      dark: '#00701a',
-      contrastText: '#ffffff',
+      light: '#76D275',
+      main: '#43A047',
+      dark: '#00701A',
+      contrastText: '#FFFFFF',
     },
   },
 });
