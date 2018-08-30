@@ -51,11 +51,12 @@ class FileList extends Component {
     const {
       title,
       fileList,
+      libraryPath,
       selectLibraryPath,
       selectCurrentFile,
     } = this.props;
 
-    if (fileList.length === 0) {
+    if (!libraryPath) {
       return (
         <AppContainer>
           <NoDirectoryPlaceholder onButtonClick={selectLibraryPath} />
