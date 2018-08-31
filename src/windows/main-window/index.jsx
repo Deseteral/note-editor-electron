@@ -6,15 +6,16 @@ import saga from '../../saga';
 import reducer from '../../reducer';
 import App from '../../components/App';
 
-const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  reducer,
-  applyMiddleware(sagaMiddleware),
-);
-
-sagaMiddleware.run(saga);
-
 function render() {
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(
+    reducer,
+    applyMiddleware(sagaMiddleware),
+  );
+
+  sagaMiddleware.run(saga);
+
+
   ReactDOM.render(
     <App store={store} />,
     document.getElementById('root'),
