@@ -24,11 +24,4 @@ function render() {
   );
 }
 
-function start() {
-  render();
-  if (module.hot) {
-    module.hot.accept(render);
-  }
-}
-
-export default start;
+export default render;
