@@ -5,8 +5,8 @@ import RichTextEditor from 'react-rte';
 import Button from 'material-ui/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import Paper from 'material-ui/Paper';
-import FileService from '../../services/file-service';
-import AppContainer from '../AppContainer/AppContainer';
+import FileService from '../services/file-service';
+import AppContainer from './AppContainer';
 
 const EditFABButton = styled(Button).attrs({
   variant: 'fab',

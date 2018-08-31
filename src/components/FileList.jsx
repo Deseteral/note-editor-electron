@@ -9,10 +9,10 @@ import List, {
 } from 'material-ui/List';
 import DescriptionIcon from '@material-ui/icons/Description';
 import AddIcon from '@material-ui/icons/Add';
-import NoDirectoryPlaceholder from '../NoDirectoryPlaceholder/NoDirectoryPlaceholder';
-import AppContainer from '../AppContainer/AppContainer';
-import NewNoteDialog from '../NewNoteDialog/NewNoteDialog';
-import FileService from '../../services/file-service';
+import NoDirectoryPlaceholder from './NoDirectoryPlaceholder';
+import AppContainer from './AppContainer';
+import NewNoteDialog from './NewNoteDialog';
+import FileService from '../services/file-service';
 
 const Container = styled.div`
   display: flex;

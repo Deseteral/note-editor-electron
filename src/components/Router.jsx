@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LibraryFileList from '../../containers/LibraryFileList';
-import CurrentFileEditor from '../../containers/CurrentFileEditor';
+import LibraryFileList from '../containers/LibraryFileList';
+import CurrentFileEditor from '../containers/CurrentFileEditor';
 
 const VIEWS = {
   FILE_LIST: 'FILE_LIST',

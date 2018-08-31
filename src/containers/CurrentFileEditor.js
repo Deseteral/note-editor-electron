@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import TextEditor from '../components/TextEditor/TextEditor';
+import TextEditor from '../components/TextEditor';
 import { viewChange } from '../actions/view';
 
 function mapStateToProps(state) {

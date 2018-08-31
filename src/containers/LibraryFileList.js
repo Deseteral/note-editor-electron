@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import FileList from '../components/FileList/FileList';
+import FileList from '../components/FileList';
 import { libraryPathLoadRequest } from '../actions/library-path';
 import { currentFileSelect } from '../actions/current-file';
 import { libraryScannerStart } from '../actions/library-scanner';

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Router from '../components/Router/Router';
+import Router from '../components/Router';
 
 function mapStateToProps(state) {
   return {

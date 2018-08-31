@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import ViewRouter from '../../containers/ViewRouter';
+import ViewRouter from '../containers/ViewRouter';
 
 const theme = createMuiTheme({
   palette: {
