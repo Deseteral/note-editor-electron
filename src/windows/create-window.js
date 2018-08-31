@@ -1,7 +1,7 @@
 import { BrowserWindow } from 'electron';
 import windows from './store';
 
-async function createWindow(name, options) {
+function createWindow(name, options) {
   windows[name] = new BrowserWindow(options);
   windows[name].loadURL(`file://${__dirname}/${name}/index.html`);
 

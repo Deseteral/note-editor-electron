@@ -10,10 +10,10 @@ const mainWindowOptions = {
 
 (function main() {
   app.on('ready', () => createWindow('main-window', mainWindowOptions));
-  app.on('window-all-closed', () => app.quit());
   app.on('activate', () => {
     if (windows['main-window'] === null) {
       createWindow('main-window', mainWindowOptions);
     }
   });
+  app.on('window-all-closed', () => app.quit());
 }());
