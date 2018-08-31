@@ -7,13 +7,6 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
-  return {};
-}
-
-const ViewRouter = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Router);
+const ViewRouter = connect(mapStateToProps)(Router);
 
 export default ViewRouter;
