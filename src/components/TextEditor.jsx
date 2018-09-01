@@ -19,6 +19,25 @@ const EditFABButton = styled(Button).attrs({
   bottom: 16px;
 }`;
 
+const RTE_TOOLBAR_CONFIG = {
+  display: ['HISTORY_BUTTONS', 'INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_DROPDOWN', 'BLOCK_TYPE_BUTTONS'],
+  INLINE_STYLE_BUTTONS: [
+    { label: 'Bold', style: 'BOLD', className: 'custom-css-class' },
+    { label: 'Italic', style: 'ITALIC' },
+    { label: 'Underline', style: 'UNDERLINE' },
+  ],
+  BLOCK_TYPE_DROPDOWN: [
+    { label: 'Normal', style: 'unstyled' },
+    { label: 'Heading Large', style: 'header-one' },
+    { label: 'Heading Medium', style: 'header-two' },
+    { label: 'Heading Small', style: 'header-three' },
+  ],
+  BLOCK_TYPE_BUTTONS: [
+    { label: 'UL', style: 'unordered-list-item' },
+    { label: 'OL', style: 'ordered-list-item' },
+  ],
+};
+
 class TextEditor extends Component {
   constructor(props) {
     super(props);
@@ -38,9 +57,9 @@ class TextEditor extends Component {
 
   onChange(value) {
     this.setState({ value });
+
     const { file } = this.props;
     const markdownContent = this.state.value.toString('markdown');
-
     FileService.saveFile(file.path, markdownContent);
   }
 
@@ -65,25 +84,6 @@ class TextEditor extends Component {
       border: 'none',
     };
 
-    const toolbarConfig = {
-      display: ['HISTORY_BUTTONS', 'INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_DROPDOWN', 'BLOCK_TYPE_BUTTONS'],
-      INLINE_STYLE_BUTTONS: [
-        { label: 'Bold', style: 'BOLD', className: 'custom-css-class' },
-        { label: 'Italic', style: 'ITALIC' },
-        { label: 'Underline', style: 'UNDERLINE' },
-      ],
-      BLOCK_TYPE_DROPDOWN: [
-        { label: 'Normal', style: 'unstyled' },
-        { label: 'Heading Large', style: 'header-one' },
-        { label: 'Heading Medium', style: 'header-two' },
-        { label: 'Heading Small', style: 'header-three' },
-      ],
-      BLOCK_TYPE_BUTTONS: [
-        { label: 'UL', style: 'unordered-list-item' },
-        { label: 'OL', style: 'ordered-list-item' },
-      ],
-    };
-
     const onBackClick = editMode
       ? () => this.setState({ editMode: false })
       : () => changeView('FILE_LIST');
@@ -95,13 +95,11 @@ class TextEditor extends Component {
       >
         <Paper>
           {!editMode && (
-            <EditFABButton
-              onClick={() => this.setState({ editMode: true })}
-            />
+            <EditFABButton onClick={() => this.setState({ editMode: true })} />
           )}
           <RichTextEditor
             rootStyle={rteStyle}
-            toolbarConfig={toolbarConfig}
+            toolbarConfig={RTE_TOOLBAR_CONFIG}
             editorClassName="editor-root"
             value={value}
             readOnly={!editMode}
