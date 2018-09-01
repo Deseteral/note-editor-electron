@@ -2,8 +2,8 @@ import path from 'path';
 import shortid from 'shortid';
 import recursiveReaddir from 'recursive-readdir';
 
-const FILE_COMPARATOR = (fileA, fileB) => fileA.filename > fileB.filename;
-const PATH_TO_FILE_MAPPER = filePath => ({
+const fileComparator = (fileA, fileB) => fileA.filename > fileB.filename;
+const mapPathToFileObject = filePath => ({
   id: shortid.generate(),
   path: filePath,
   filename: path.basename(filePath, path.extname(filePath)),
@@ -14,8 +14,8 @@ async function libraryScanner(libraryPath) {
     const paths = await recursiveReaddir(libraryPath, ['!*.md']);
 
     return paths
-      .map(PATH_TO_FILE_MAPPER)
-      .sort(FILE_COMPARATOR);
+      .map(mapPathToFileObject)
+      .sort(fileComparator);
   } catch (error) {
     throw error;
   }
