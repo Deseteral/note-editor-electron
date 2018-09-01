@@ -56,7 +56,7 @@ class TextEditor extends Component {
     const { fileContent, value, editMode } = this.state;
 
     if (!fileContent) {
-      return (<div>spinner</div>);
+      return (<div>Wczytywanie pliku...</div>);
     }
 
     const rteStyle = {
