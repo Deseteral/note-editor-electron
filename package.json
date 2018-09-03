@@ -64,7 +64,7 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "npm"
+        "packageManager": "yarn"
       },
       "electronWinstallerConfig": {
         "name": "note_editor_electron"
