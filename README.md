@@ -10,6 +10,7 @@ https://github.com/Deseteral/note-editor-electron/releases
 - node.js v10+
 - yarn (`npm i -g yarn`)
 - `libgconf2` (on linux)
+  - on Ubuntu run `apt-get install libgconf-2-4`
 
 You have to install dependencies using yarn:
 
